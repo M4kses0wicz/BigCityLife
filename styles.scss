@@ -62,13 +62,13 @@
       animation-range: exit;
       h1 {
         font-family: "Lato", sans-serif;
-        font-size: 5.5rem;
+        font-size: 7.5rem;
         letter-spacing: 2rem;
         word-spacing: 1.75rem;
         background: rgba(0, 0, 0, 0.5);
         backdrop-filter: grayscale(50%) blur(3px);
         padding-bottom: 7px;
-        font-weight: 300;
+        font-weight: 300 !important;
         width: 100%;
         text-wrap: nowrap;
         // position: sticky;
@@ -98,8 +98,11 @@
       @include Flex_center(column);
       section {
         width: 70%;
+        @include mobile-w(1400px) {
+          width: 97%;
+        }
         color: #dedede;
-        padding: 200px;
+        padding: 7rem;
         background: #0000000f;
         border-radius: 47px;
         backdrop-filter: blur(3px) grayscale(25%);
@@ -113,25 +116,37 @@
       filter: blur(7px);
       &-container {
         @include Flex_center(row);
+        @include mobile-w(1400px) {
+          flex-direction: column !important;
+        }
         gap: 3vw;
         h2 {
           font-family: "Lato", sans-serif;
-          font-size: clamp(1em, 2.25vw, 6em);
+          font-size: clamp(47px, 4rem, 87px);
         }
         p {
           font-family: "Baskervville", serif;
-          font-size: 20px;
-          width: 600px;
+          font-size: clamp(21px, 3.5rem, 37px);
+          // width: 600px;
           margin-top: 70px;
           word-spacing: 10px;
           letter-spacing: 2px;
-          line-height: 40px;
+          @include mobile-w(1400px) {
+            margin-top: 47px;
+            margin-bottom: 17px;
+          }
         }
         img {
           clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
           height: 500px;
-          width: 400px;
+          width: 100%;
           object-fit: cover;
+          @include mobile-w(1400px) {
+            clip-path: none;
+            border-radius: 27px;
+            height: 370px !important;
+            width: 100% !important;
+          }
           &.taxi {
             width: 550px;
           }
@@ -204,10 +219,11 @@
         }
         h3 {
           font-family: "Lato", sans-serif;
-          font-size: clamp(36px, 8rem, 160px);
+          font-size: clamp(56px, 8rem, 160px);
           letter-spacing: clamp(8px, 1.2vw, 27px);
           word-spacing: clamp(20px, 2vw, 77px);
-          margin-bottom: 50px;
+          margin-bottom: 25px;
+          text-wrap: nowrap;
         }
         p {
           font-family: "Baskervville", serif;
@@ -226,6 +242,11 @@
         justify-self: flex-end;
         font-size: clamp(18px, 3.5rem, 32px);
         transform: translateY(150px);
+        @include mobile-w(650px) {
+          position: absolute;
+          bottom: 0;
+          transform: translateY(-17px);
+        }
         font-family: "Courier New", Courier, monospace;
       }
     }
@@ -235,12 +256,12 @@
     height: 100vh;
     width: calc(100vw + 1000px);
     overflow: hidden;
-    position: fixed;
+    position: fixed !important;
     padding: 5%;
     padding-left: 0%;
     padding-right: 0%;
     padding-bottom: 10%;
-    top: 0;
+    top: 0 !important;
     pointer-events: none;
     z-index: 1 !important;
     color: white;
