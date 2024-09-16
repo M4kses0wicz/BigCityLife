@@ -3,10 +3,10 @@
   padding: 0;
   box-sizing: border-box;
   position: relative;
-  z-index: 99;
+  z-index: 100;
 }
 
-:root{
+:root {
   font-size: 1vw;
 }
 
@@ -152,10 +152,10 @@
         width: 60%;
         .wrapper {
           display: flex;
-          @include mobile-w(650px){
-            @include Flex_center(column)
+          @include mobile-w(650px) {
+            @include Flex_center(column);
           }
-          @include mobile-w(650px){
+          @include mobile-w(650px) {
             width: 100vw;
           }
         }
@@ -204,7 +204,7 @@
         }
         h3 {
           font-family: "Lato", sans-serif;
-          font-size: clamp(36px,8rem, 160px);
+          font-size: clamp(36px, 8rem, 160px);
           letter-spacing: clamp(8px, 1.2vw, 27px);
           word-spacing: clamp(20px, 2vw, 77px);
           margin-bottom: 50px;
@@ -224,7 +224,7 @@
       .copy {
         color: gray;
         justify-self: flex-end;
-        font-size: clamp( 18px, 3.5rem, 32px);
+        font-size: clamp(18px, 3.5rem, 32px);
         transform: translateY(150px);
         font-family: "Courier New", Courier, monospace;
       }
@@ -276,10 +276,14 @@
       @for $i from 1 through 50 {
         i:nth-last-of-type(#{$i}) {
           color: darken($color: #ba5c12, $amount: calc(random(25) + 10));
-          font-size: clamp(12px , calc(random(4) * 1.5rem * ( random(2) * 0.75 )), 70px);
+          font-size: clamp(
+            12px,
+            calc(random(4) * 1.5rem * (random(2) * 0.75)),
+            70px
+          );
           margin-left: calc(random(300) * 1px + 20px);
-          @include mobile-w(800px){
-            margin-left: calc(random(150) * 1px); 
+          @include mobile-w(800px) {
+            margin-left: calc(random(150) * 1px);
           }
           position: relative;
           z-index: random(20);
