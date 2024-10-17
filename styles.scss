@@ -18,13 +18,13 @@
 }
 
 ::-webkit-scrollbar {
-  background: #101010;
+  display: none;
 }
 ::-webkit-scrollbar-thumb {
-  background: #5f5f5f;
+  display: none;
   border-radius: 2px;
   &:active {
-    background: #858585;
+    display: none;
   }
 }
 
@@ -60,6 +60,7 @@
       animation: main-anim linear forwards;
       animation-timeline: view();
       animation-range: exit;
+      overflow-x: hidden;
       h1 {
         font-family: "Lato", sans-serif;
         font-size: 7.5rem;
@@ -257,10 +258,6 @@
     width: calc(100vw + 1000px);
     overflow: hidden;
     position: fixed !important;
-    padding: 5%;
-    padding-left: 0%;
-    padding-right: 0%;
-    padding-bottom: 10%;
     top: 0 !important;
     pointer-events: none;
     z-index: 1 !important;
@@ -284,22 +281,22 @@
         @if ($i == 1) {
           transform: translateY(0px);
         } @else {
-          transform: translateY(calc($i * 25px))
+          transform: translateY(calc($i * 15%))
             translateX(calc(random(500) * 1px));
         }
       }
     }
     .container {
       width: 100%;
-      padding: 50px;
-      position: absolute;
+      padding-bottom: 10%;
+      position: fixed;
       @include Flex_center(row);
       @for $i from 1 through 50 {
         i:nth-last-of-type(#{$i}) {
           color: darken($color: #ba5c12, $amount: calc(random(25) + 10));
           font-size: clamp(
             12px,
-            calc(random(4) * 1.5rem * (random(2) * 0.75)),
+            calc(random(7) * 1.75rem * (random(2) * 0.75)),
             70px
           );
           margin-left: calc(random(300) * 1px + 20px);
