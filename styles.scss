@@ -7,7 +7,7 @@
 }
 
 :root {
-  font-size: 1vw;
+  font-size: 1svw;
 }
 
 @mixin Flex_center($fd) {
@@ -63,6 +63,7 @@
       animation: main-anim linear forwards;
       animation-timeline: view();
       animation-range: exit;
+      filter: blur(0px);
       overflow-x: hidden;
       z-index: 999;
       h1 {
@@ -124,7 +125,7 @@
         @include mobile-w(1400px) {
           flex-direction: column !important;
         }
-        gap: 3vw;
+        gap: 3svw;
         h2 {
           font-family: "Lato", sans-serif;
           font-size: clamp(47px, 4rem, 87px);
@@ -176,7 +177,7 @@
             @include Flex_center(column);
           }
           @include mobile-w(650px) {
-            width: 100vw;
+            width: 100svw;
           }
         }
         .container {
@@ -292,8 +293,8 @@
   }
 
   .bg {
-    height: 100vh;
-    width: calc(100vw + 1000px);
+    height: 100svh;
+    width: calc(100svw + 1000px);
     overflow: hidden;
     position: fixed !important;
     top: 0 !important;
@@ -373,8 +374,8 @@
   @keyframes main-anim {
     to {
       opacity: 0%;
-      transform: scaleY(300%) translateY(-20%);
-      filter: blur(7px), grayscale(100%);
+      filter: blur(20px);
+      transform: translateY(100%);
     }
   }
 
