@@ -603,7 +603,12 @@
           </div>
         </div>
       </section>
-      <p class="copy">Maksymilian Klemensowicz &copy;</p>
+      <p class="copy">&copy <span id="year"></span> Maksymilian Klemensowicz</p>
     </footer>
+    <script>
+      // copyrights date
+      const currentYear = new Date().getFullYear();
+      document.getElementById("year").textContent = currentYear;
+    </script>
   </body>
 </html>
