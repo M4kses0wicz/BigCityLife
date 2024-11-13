@@ -57,7 +57,10 @@
       color: #fdfdfd;
       background: url(images/main-pic.jpg);
       background-position: 30%;
-      animation: main-anim linear forwards;
+      @include mobile-w(1500px) {
+        animation-name: main-anim;
+      }
+      animation: main-anim-scale linear forwards;
       animation-timeline: view();
       animation-range: exit;
       filter: blur(0px);
@@ -249,12 +252,12 @@
       .copy {
         color: gray;
         justify-self: flex-end;
-        font-size: clamp(15px, 1.5rem, 32px);
-        transform: translateY(150px);
+        font-size: clamp(15px, 1.2rem, 32px);
+        transform: translateY(250px);
         @include mobile-w(650px) {
           position: absolute;
           bottom: 0;
-          transform: translateY(-17px);
+          transform: translateY(-37.5px);
         }
         font-family: "Courier New", Courier, monospace;
       }
@@ -373,6 +376,18 @@
     to {
       opacity: 0%;
       filter: blur(35px) grayscale(10%);
+      background-position-y: 75%;
+    }
+  }
+
+  @keyframes main-anim-scale {
+    from {
+      opacity: 100%;
+    }
+    to {
+      opacity: 0%;
+      filter: blur(35px) grayscale(10%);
+      transform: scale(200%);
       background-position-y: 75%;
     }
   }
