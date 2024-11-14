@@ -10,6 +10,20 @@
   font-size: 0.75svw;
 }
 
+@function random-scale() {
+  $x: random(125);
+
+  @if $x < 25 and $x > 10 {
+    $x: $x * 5;
+  } @else if $x <= 10 {
+    $x: $x * 10;
+  } @else {
+    $x: $x;
+  }
+
+  @return $x * 1.25%;
+}
+
 @mixin Flex_center($fd) {
   display: flex;
   justify-content: center;
@@ -348,6 +362,7 @@
           position: relative;
           z-index: random(20);
           transform: translateY(calc(random(1000) * 1px));
+          scale: random-scale();
         }
       }
     }
