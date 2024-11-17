@@ -24,6 +24,20 @@
   @return $x * 1.25%;
 }
 
+@function random-scale-mobile() {
+  $x: random(125);
+
+  @if $x < 25 and $x > 10 {
+    $x: $x * 10;
+  } @else if $x <= 10 {
+    $x: $x * 15;
+  } @else {
+    $x: $x;
+  }
+
+  @return $x * 1.375%;
+}
+
 @mixin Flex_center($fd) {
   display: flex;
   justify-content: center;
@@ -363,6 +377,9 @@
           z-index: random(20);
           transform: translateY(calc(random(1000) * 1px));
           scale: random-scale();
+          @include mobile-w(850px) {
+            scale: random-scale-mobile() !important;
+          }
         }
       }
     }
